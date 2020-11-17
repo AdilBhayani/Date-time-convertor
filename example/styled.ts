@@ -12,23 +12,6 @@ export const GlobalStyles = createGlobalStyle`
     color: #900C3F;
   }
 
-  // Could potentially move this into component
-  h2 {
-    font-size: 1em;
-  }
-
-  // Could potentially move this into component
-  .roundedDiv {
-    border-radius: 25px;
-    border: 4px solid #37474F;
-    padding: 15px;
-    width: 500px;
-    height: 150px;
-    margin:0 auto;
-    background-color: #DEE4E7;
-    color: #900C3F;
-  }
-
   * {
     box-sizing: content-box;
   }

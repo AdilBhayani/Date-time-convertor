@@ -1,11 +1,19 @@
-import * as React from "react";
+import React from "react";
 import * as moment from "moment-timezone";
 import Select, { OptionTypeBase } from "react-select";
 import { useState } from "react";
 
-export interface DateConvertorProps {}
+export interface DateConvertorProps {
+  borderRadius?: string;
+  border?: string;
+  width?: string;
+  height?: string;
+  backgroundColor?: string;
+  color?: string;
+  fontSize?: string;
+}
 
-export const DateConvertor = (_props: DateConvertorProps) => {
+export const DateConvertor = (props: DateConvertorProps) => {
   const thisTimeZone = moment.tz.guess();
   const [chosenTimeZone, setChosenTimezone] = useState(thisTimeZone);
 
@@ -26,9 +34,29 @@ export const DateConvertor = (_props: DateConvertorProps) => {
     console.log(chosenTimeZone);
   };
 
+  const {
+    borderRadius,
+    border,
+    width,
+    height,
+    backgroundColor,
+    color,
+    fontSize,
+  } = props;
   const result = (
-    <div className="roundedDiv">
-      <h2>View the time in another timezone</h2>
+    <div
+      style={{
+        border,
+        borderRadius,
+        width,
+        height,
+        backgroundColor,
+        color,
+        padding: "15px",
+        margin: "0 auto",
+      }}
+    >
+      <h2 style={{ fontSize }}>View the time in another timezone</h2>
       <Select
         options={formatedTimezones}
         onChange={(value) => handleOnChange(value as OptionTypeBase)}
@@ -46,8 +74,15 @@ export const DateConvertor = (_props: DateConvertorProps) => {
   return result;
 };
 
-// Prop ideas
-// Curve radius
-// Height/width
-// Border color and thickness
-// Font style
+DateConvertor.defaultProps = {
+  borderRadius: "25px",
+  border: "4px solid #37474F",
+  width: "500px",
+  height: "175px",
+  backgroundColor: "#DEE4E7",
+  color: "#900C3F",
+  fontSize: "1em",
+};
+
+// https://stackoverflow.com/questions/61226729/pass-style-as-props-in-react-component
+// https://blog.bitsrc.io/understanding-react-default-props-5c50401ed37d

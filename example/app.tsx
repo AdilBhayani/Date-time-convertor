@@ -7,7 +7,11 @@ const App = () => {
     <AppWrapper>
       <GlobalStyles />
       <h1>Date Convertor Example</h1>
-      <DateSelector></DateSelector>
+      <DateSelector
+        color="blue"
+        borderRadius="50px"
+        border="4px solid #67474F"
+      ></DateSelector>
     </AppWrapper>
   );
 };
