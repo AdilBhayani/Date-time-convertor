@@ -11,10 +11,6 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1.5em;
     color: #900C3F;
   }
-
-  * {
-    box-sizing: content-box;
-  }
 `;
 
 export const AppWrapper = styled.div``;
