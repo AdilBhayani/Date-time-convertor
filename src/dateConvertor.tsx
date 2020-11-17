@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import * as moment from "moment-timezone";
 import Select, { OptionTypeBase } from "react-select";
-import { useState } from "react";
 
 export interface DateConvertorProps {
   borderRadius?: string;
@@ -30,7 +29,7 @@ export const DateConvertor = (props: DateConvertorProps) => {
     .format("LLL");
 
   const handleOnChange = (newTimezone: OptionTypeBase) => {
-    setChosenTimezone(newTimezone ? newTimezone["value"] : thisTimeZone);
+    setChosenTimezone(newTimezone ? newTimezone.value : thisTimeZone);
     console.log(chosenTimeZone);
   };
 
@@ -59,9 +58,11 @@ export const DateConvertor = (props: DateConvertorProps) => {
       <h2 style={{ fontSize }}>View the time in another timezone</h2>
       <Select
         options={formatedTimezones}
+        // TODO: How would I change this to not use a lambda? Bind is an option but it still creates a new function every render right?
+        // tslint:disable-next-line jsx-no-lambda
         onChange={(value) => handleOnChange(value as OptionTypeBase)}
         isClearable={true}
-      ></Select>
+      />
       <p>
         {thisTimeZone} --{">"} {chosenTimeZone}
       </p>

@@ -17,3 +17,6 @@ const App = () => {
 };
 
 export default App;
+
+// TODO: Why do I need to have last two dependencies in package.json. Just used in dev
+// TODO: Have tried to setup tslint rules but doesn't seem to be working

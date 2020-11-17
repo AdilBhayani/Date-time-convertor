@@ -4,7 +4,10 @@
   "main": "dist/es5/index.js",
   "license": "MIT",
   "devDependencies": {
-    "ts-react-toolbox": "^1.1.1"
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "ts-react-toolbox": "^1.1.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5"
   },
   "engines": {
     "node": ">=10.23.0"
@@ -38,6 +41,8 @@
     "@types/react-select": "^3.0.23",
     "moment-timezone": "^0.5.31",
     "react-select": "^3.1.0",
-    "react-timezone-select": "^0.9.7"
+    "react-timezone-select": "^0.9.7",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5"
   }
 }

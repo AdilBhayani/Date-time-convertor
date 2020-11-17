@@ -2,7 +2,8 @@ import * as React from "react";
 import { shallow, configure } from "enzyme";
 import DateConvertor, { DateConvertorProps } from "../src";
 
-const Adapter = require("enzyme-adapter-react-16");
+// What is the purpose of enzyme here. Does it just allow tests to work for various react versions?
+import Adapter from "enzyme-adapter-react-16";
 
 configure({ adapter: new Adapter() });
 
@@ -12,6 +13,7 @@ describe("DateConvertor", () => {
       color: "blue",
     };
 
+    // Do we make a shallow copy so we want see what changes?
     const dateConvertor = shallow(
       <DateConvertor {...initialOptions} {...props} />
     );
@@ -21,9 +23,9 @@ describe("DateConvertor", () => {
     };
   };
 
-  it("should be magic", () => {
+  it("should have blue colored text", () => {
     const { dateConvertor } = setup();
     const containerDiv = dateConvertor.find("div").first();
-    expect(containerDiv.prop("style").color).toBe("blue");
+    expect(containerDiv.prop("style")?.color).toBe("blue");
   });
 });

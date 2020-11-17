@@ -677,7 +677,14 @@
   dependencies:
     "@types/node" "*"
 
-"@types/enzyme@^3.10.5":
+"@types/enzyme-adapter-react-16@^1.0.6":
+  version "1.0.6"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@types/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.0.6.tgz#8aca7ae2fd6c7137d869b6616e696d21bb8b0cec"
+  integrity sha1-isp64v1scTfYabZhbmltIbuLDOw=
+  dependencies:
+    "@types/enzyme" "*"
+
+"@types/enzyme@*", "@types/enzyme@^3.10.5":
   version "3.10.8"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@types/enzyme/-/enzyme-3.10.8.tgz#ad7ac9d3af3de6fd0673773123fafbc63db50d42"
   integrity sha1-rXrJ06895v0Gc3cxI/r7xj21DUI=
@@ -2923,7 +2930,7 @@ entities@^2.0.0:
   resolved "https://packages.atlassian.com/api/npm/npm-remote/entities/-/entities-2.1.0.tgz#992d3129cf7df6870b96c57858c249a120f8b8b5"
   integrity sha1-mS0xKc999ocLlsV4WMJJoSD4uLU=
 
-enzyme-adapter-react-16@^1.15.2:
+enzyme-adapter-react-16@^1.15.2, enzyme-adapter-react-16@^1.15.5:
   version "1.15.5"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.15.5.tgz#7a6f0093d3edd2f7025b36e7fbf290695473ee04"
   integrity sha1-em8Ak9Pt0vcCWzbn+/KQaVRz7gQ=
