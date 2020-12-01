@@ -1,18 +1,35 @@
-import React, { useState } from "react";
+import * as React from "react";
+import { useState } from "react";
 import * as moment from "moment-timezone";
 import Select, { OptionTypeBase } from "react-select";
+import { Size } from "./types";
+import {
+  customSelectStyles,
+  DateConvertorContainer,
+  DateConvertorHeading,
+  DateConvertorText,
+  defaultColor,
+  defaultSize,
+} from "./styled";
 
 export interface DateConvertorProps {
-  borderRadius?: string;
-  border?: string;
-  width?: string;
-  height?: string;
-  backgroundColor?: string;
+  size?: Size;
+  initialTimeZone?: string;
   color?: string;
-  fontSize?: string;
 }
 
+const defaultProps: DateConvertorProps = {
+  size: defaultSize,
+  color: defaultColor,
+};
+
 export const DateConvertor = (props: DateConvertorProps) => {
+  // Using a deafult parameter doesn't work. Just gets an empty object instead
+  props = {
+    ...defaultProps,
+    ...props,
+  };
+
   const thisTimeZone = moment.tz.guess();
   const [chosenTimeZone, setChosenTimezone] = useState(thisTimeZone);
 
@@ -30,60 +47,33 @@ export const DateConvertor = (props: DateConvertorProps) => {
 
   const handleOnChange = (newTimezone: OptionTypeBase) => {
     setChosenTimezone(newTimezone ? newTimezone.value : thisTimeZone);
-    console.log(chosenTimeZone);
   };
 
-  const {
-    borderRadius,
-    border,
-    width,
-    height,
-    backgroundColor,
-    color,
-    fontSize,
-  } = props;
   const result = (
-    <div
-      style={{
-        border,
-        borderRadius,
-        width,
-        height,
-        backgroundColor,
-        color,
-        padding: "15px",
-        margin: "0 auto",
-      }}
+    <DateConvertorContainer
+      // Why do I have to force the non null assertion here
+      size={props.size!}
+      color={props.color!}
     >
-      <h2 style={{ fontSize }}>View the time in another timezone</h2>
+      <DateConvertorHeading size={props.size!}>
+        View the time in another timezone
+      </DateConvertorHeading>
       <Select
         options={formatedTimezones}
-        // TODO: How would I change this to not use a lambda? Bind is an option but it still creates a new function every render right?
+        // TODO: Use memoization for the following
         // tslint:disable-next-line jsx-no-lambda
         onChange={(value) => handleOnChange(value as OptionTypeBase)}
         isClearable={true}
+        styles={props.size === "small" ? customSelectStyles : {}}
       />
-      <p>
+      <DateConvertorText size={props.size!}>
         {thisTimeZone} --{">"} {chosenTimeZone}
-      </p>
-      <p>
+      </DateConvertorText>
+      <DateConvertorText size={props.size!}>
         {timeHere} --{">"} {timeThere}
-      </p>
-    </div>
+      </DateConvertorText>
+    </DateConvertorContainer>
   );
 
   return result;
 };
-
-DateConvertor.defaultProps = {
-  borderRadius: "25px",
-  border: "4px solid #37474F",
-  width: "500px",
-  height: "175px",
-  backgroundColor: "#DEE4E7",
-  color: "#900C3F",
-  fontSize: "1em",
-};
-
-// https://stackoverflow.com/questions/61226729/pass-style-as-props-in-react-component
-// https://blog.bitsrc.io/understanding-react-default-props-5c50401ed37d

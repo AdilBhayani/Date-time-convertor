@@ -41,8 +41,6 @@
     "@types/react-select": "^3.0.23",
     "moment-timezone": "^0.5.31",
     "react-select": "^3.1.0",
-    "react-timezone-select": "^0.9.7",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5"
+    "react-timezone-select": "^0.9.7"
   }
 }
