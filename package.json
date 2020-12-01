@@ -5,9 +5,9 @@
   "license": "MIT",
   "devDependencies": {
     "@types/enzyme-adapter-react-16": "^1.0.6",
-    "ts-react-toolbox": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.15.5",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5"
+    "ts-react-toolbox": "^1.1.1"
   },
   "engines": {
     "node": ">=10.23.0"
@@ -15,8 +15,8 @@
   "scripts": {
     "bootstrap": "ts-react-toolbox init",
     "dev": "ts-react-toolbox dev",
-    "test": "ts-react-toolbox test",
-    "test:ci": "ts-react-toolbox test --runInBand --coverage",
+    "test": "TZ=UTC ts-react-toolbox test",
+    "test:ci": "TZ=UTC ts-react-toolbox test --runInBand --coverage",
     "build": "ts-react-toolbox build",
     "release": "ts-react-toolbox release",
     "lint": "ts-react-toolbox lint",
@@ -25,8 +25,8 @@
     "analyze": "ts-react-toolbox analyze"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react": "^16.13.1",
     "styled-components": "^5.1.0"
   },
   "jsnext:main": "dist/es2015/index.js",

@@ -12,6 +12,7 @@ import {
   defaultColor,
   defaultSize,
 } from "../src/styled";
+// import timezone_mock from 'timezone-mock';
 
 configure({ adapter: new Adapter() });
 
@@ -55,4 +56,32 @@ describe("DateConvertor", () => {
     expect(heading.prop("size")).toBe("small");
     expect(text.prop("size")).toBe("small");
   });
+
+  // Timezone is conifgured as UTC when running this test
+  // TOASK: How do I configure my own jest file since the jest config is within ts-toolbox itself?
+  it("should guess the current timezone to be Africa/Abidjan", () => {
+    const { dateConvertor } = setup();
+    // console.log(dateConvertor.debug());
+    const dateConvertorText = dateConvertor.find(DateConvertorText).first();
+    expect(dateConvertorText.html()).toContain("Africa/Abidjan");
+  });
+
+  // TOASK: The test below is a superset of the test above. What should I do in this situation?
+  it("should start with a default toTimezone of Pacific/Auckland", () => {
+    const { dateConvertor } = setup();
+    const dateConvertorText = dateConvertor.find(DateConvertorText).first();
+    expect(dateConvertorText.html()).toContain(
+      "Africa/Abidjan --&gt; Pacific/Auckland"
+    );
+  });
+
+  it("should use the given toTimezone", () => {
+    const { dateConvertor } = setup({ toTimezone: "Australia/Adelaide" });
+    const dateConvertorText = dateConvertor.find(DateConvertorText).first();
+    expect(dateConvertorText.html()).toContain(
+      "Africa/Abidjan --&gt; Australia/Adelaid"
+    );
+  });
+
+  // TOASK: How would I test functionality such as choosing a timezone and seeing the values update? Integration test or similar?
 });

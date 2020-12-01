@@ -16,22 +16,24 @@ export interface DateConvertorProps {
   size?: Size;
   initialTimeZone?: string;
   color?: string;
+  toTimezone?: string;
 }
 
 const defaultProps: DateConvertorProps = {
   size: defaultSize,
   color: defaultColor,
+  toTimezone: "Pacific/Auckland"
 };
 
 export const DateConvertor = (props: DateConvertorProps) => {
-  // Using a deafult parameter doesn't work. Just gets an empty object instead
+  // TOASK: Using a deafult parameter doesn't work. Just gets an empty object instead
   props = {
     ...defaultProps,
     ...props,
   };
 
   const thisTimeZone = moment.tz.guess();
-  const [chosenTimeZone, setChosenTimezone] = useState(thisTimeZone);
+  const [chosenTimeZone, setChosenTimezone] = useState(props.toTimezone!);
 
   const timeZones = moment.tz.names();
   const formatedTimezones = timeZones.map((timeZone) => {
@@ -65,6 +67,7 @@ export const DateConvertor = (props: DateConvertorProps) => {
         onChange={(value) => handleOnChange(value as OptionTypeBase)}
         isClearable={true}
         styles={props.size === "small" ? customSelectStyles : {}}
+        defaultValue={{label: props.toTimezone, value: defaultProps.toTimezone}}
       />
       <DateConvertorText size={props.size!}>
         {thisTimeZone} --{">"} {chosenTimeZone}

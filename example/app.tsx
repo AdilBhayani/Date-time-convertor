@@ -7,7 +7,7 @@ const App = () => {
     <AppWrapper>
       <GlobalStyles />
       <h1>Date Convertor Example</h1>
-      <DateSelector size="small"/>
+      <DateSelector size="small" toTimezone="Australia/Adelaide" />
     </AppWrapper>
   );
 };
