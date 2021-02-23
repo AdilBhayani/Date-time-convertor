@@ -1,82 +1,3 @@
-// let mockGuess = jest.fn();
-// let mockMoment = jest.fn(() => {
-//   mockGuess
-// });
-
-// jest.mock("moment-timezone", () => ({
-//   __esModule: true,
-//   default: {
-//     moment: () => mockMoment(),
-//     guess: () => mockGuess()
-//   },
-// }));
-
-// // Attemot 4:
-// jest.mock("moment-timezone", () => {
-//   const momentMock = jest.requireActual("moment-timezone");
-//   // console.log(momentMock.tz.guess);
-//   // momentMock.tz.guess = jest.fn().mockImplementation(() => {
-//   //   console.log("mock");
-//   //   return "ksajhdkja";
-//   // });
-//   console.log(momentMock.tz.prototype.guess);
-//   console.log(momentMock.tz.guess);
-//   class Tzmock {
-//     guess() {
-//       console.log("inside guess");
-//     }
-//   }
-//   return {
-//     ...momentMock,
-//     tz: Tzmock,
-//     // tz: {
-//     //   ...momentMock.tz,
-//     // },
-//   };
-// });
-
-// import * as moment from "moment-timezone";
-// console.log(moment.tz.guess);
-// console.log(moment.tz.guess());
-// Attempt 3:
-// jest.mock("moment-timezone", () => {
-//   const mockMoment = jest.requireActual("moment-timezone");
-//   console.log(mockMoment);
-//   return {
-//     tz: jest.fn(),
-//     tz: {
-//       ...mockMoment.tz,
-//       guess: jest.fn(() => "yes"),
-//     },
-//   };
-// });
-
-// Attempt 2:
-// jest.mock("moment-timezone", () => {
-//   const moment = {
-//       tz: {},
-//   };
-//   moment.tz = {
-//     guess: jest.fn(),
-//   };
-//   return moment;
-// });
-
-// Attempt 1:
-// // This has to be right at the top for the mock to be present before you import component
-// jest.mock("moment-timezone", () => {
-//   return {
-//     tz: () => {
-//       return {
-//         guess: () => {
-//           return "Africa/Abidjan";
-//         },
-//       };
-//     },
-//   };
-// }); // The object here is the object we want and it is something that we control.
-//const mockedMoment = moment as jest.Mocked<typeof moment>;
-
 import * as React from "react";
 import { shallow } from "enzyme";
 import DateConvertor, { DateConvertorProps } from "../src";
@@ -84,7 +5,6 @@ import DateConvertor, { DateConvertorProps } from "../src";
 // What is the purpose of enzyme here. Does it just allow tests to work for various react versions?
 // Yeah it configures enzyme. This is typically done using a file for enzyme setup. jest.config
 
-// import Adapter from "enzyme-adapter-react-16";
 import {
   DateConvertorContainer,
   DateConvertorHeading,
@@ -92,8 +12,6 @@ import {
   defaultColor,
   defaultSize,
 } from "../src/styled";
-
-// configure({ adapter: new Adapter() });
 
 describe("DateConvertor", () => {
   const setup = (props?: Partial<DateConvertorProps>) => {
