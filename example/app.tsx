@@ -1,5 +1,5 @@
 import * as React from "react";
-import DateSelector, { Size } from "../src";
+import DateConvertor, { Size } from "../src";
 import {
   AppWrapper,
   OptionsSidebar,
@@ -82,7 +82,7 @@ const App = () => {
           </TextFieldsWrapper>
         </OptionsSidebar>
         <DateConvertorWrapper>
-          <DateSelector size={size} color={color} />
+          <DateConvertor size={size} color={color} />
         </DateConvertorWrapper>
       </ColumnsWrapper>
       <GlobalStyles />

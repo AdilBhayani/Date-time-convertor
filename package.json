@@ -1,6 +1,7 @@
 {
   "name": "date-time-convertor",
-  "version": "1.0.0",
+  "description": "A small component which allows you to view the time in other timezones",
+  "version": "1.0.2",
   "main": "dist/es5/index.js",
   "license": "MIT",
   "devDependencies": {
