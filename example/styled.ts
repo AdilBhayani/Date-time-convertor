@@ -15,22 +15,17 @@ export const GlobalStyles = createGlobalStyle`
 // https://medium.com/javascript-in-plain-english/power-and-beauty-of-flexbox-layout-in-react-native-7f80feff64f4
 export const DateConvertorWrapper = styled.div`
   flex: 8;
-  // display: flex;
   padding: 5em;
 `;
 
 export const FullWidthWrapper = styled.div`
-  // display: flex;
   width: 100%;
   text-align: center;
   padding: 3em;
-  // margin-top: 10px;
-  // margin-bottom: 10px;
 `;
 
 export const OptionsSidebar = styled.div`
   flex: 2;
-  // display: flex;
   padding: 3em;
   border-right: 1px solid #e2e2e2;
   overflow: auto;
@@ -39,7 +34,6 @@ export const OptionsSidebar = styled.div`
 `;
 
 export const TextFieldsWrapper = styled.div`
-  // display: flex;
   justify-content: space-around;
   flex-direction: column;
 `;
@@ -54,7 +48,6 @@ export const ColumnsWrapper = styled.div`
 `
 
 export const AppWrapper = styled.div`
-  // display: flex;
   max-height: 80vh;
   max-width: 90vw;
   box-shadow: 1px 5px 5px 1px rgba(0, 0, 0, 0.3);
@@ -62,7 +55,6 @@ export const AppWrapper = styled.div`
   position: absolute;
   overflow: hidden;
   width: 100%;
-  // height: 100%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);

@@ -42,9 +42,7 @@ export const DateConvertor = (
     ...optionalProps,
   } as DateConvertorProps;
 
-  console.log(tz.guess);
   const thisTimeZone = tz.guess();
-  console.log(thisTimeZone, "kasdhkdka");
   const [chosenTimeZone, setChosenTimezone] = useState(props.toTimezone);
 
   const timeZones = tz.names();
@@ -54,19 +52,15 @@ export const DateConvertor = (
       value: timeZone,
     };
   });
-  const timeHere = tz(new Date().getTime(), thisTimeZone).format("LLL");
-  const timeThere = tz(new Date().getTime(), chosenTimeZone).format("LLL");
+  const timeHere = tz(Date.now(), thisTimeZone).format("LLL");
+  const timeThere = tz(Date.now(), chosenTimeZone).format("LLL");
 
   const handleOnChange = (newTimezone: OptionTypeBase) => {
     setChosenTimezone(newTimezone ? newTimezone.value : thisTimeZone);
   };
 
   const result = (
-    <DateConvertorContainer
-      // TOASK: Why do I have to force the non null assertion here
-      size={props.size}
-      color={props.color}
-    >
+    <DateConvertorContainer size={props.size} color={props.color}>
       <DateConvertorHeading size={props.size}>
         View the time in another timezone
       </DateConvertorHeading>
