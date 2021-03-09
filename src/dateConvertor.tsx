@@ -64,22 +64,25 @@ export const DateConvertor = (
       <DateConvertorHeading size={props.size}>
         View the time in another timezone
       </DateConvertorHeading>
-      <Select
-        options={formatedTimezones}
-        // TODO: Use memoization for the following
-        // tslint:disable-next-line jsx-no-lambda
-        onChange={(value) => handleOnChange(value as OptionTypeBase)}
-        isClearable={true}
-        styles={props.size === "small" ? customSelectStyles : {}}
-        defaultValue={{
-          label: props.toTimezone,
-          value: defaultProps.toTimezone,
-        }}
-      />
-      <DateConvertorText size={props.size}>
+      <span data-testid="timezone-select">
+        <Select
+          options={formatedTimezones}
+          // TODO: Use memoization for the following
+          // tslint:disable-next-line jsx-no-lambda
+          onChange={(value) => handleOnChange(value as OptionTypeBase)}
+          isClearable={true}
+          styles={props.size === "small" ? customSelectStyles : {}}
+          defaultValue={{
+            label: props.toTimezone,
+            value: defaultProps.toTimezone,
+          }}
+        />
+      </span>
+
+      <DateConvertorText data-testid="timezones" size={props.size}>
         {thisTimeZone} --{">"} {chosenTimeZone}
       </DateConvertorText>
-      <DateConvertorText size={props.size}>
+      <DateConvertorText data-testid="time-conversion" size={props.size}>
         {timeHere} --{">"} {timeThere}
       </DateConvertorText>
     </DateConvertorContainer>

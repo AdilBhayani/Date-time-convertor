@@ -24,7 +24,7 @@
       "es2015.promise"
     ],
     "jsx": "react",
-    "types": ["react", "jest", "cypress"]
+    "types": ["react", "jest"]
   },
   "files": ["./custom-typings/typings.d.ts", "dec.d.ts"],
   "include": ["src", "decs.d.ts"]

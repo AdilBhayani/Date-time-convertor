@@ -34,7 +34,8 @@
     "static": "ts-react-toolbox publish",
     "format": "ts-react-toolbox format",
     "analyze": "ts-react-toolbox analyze",
-    "test:vr": "jest"
+    "test:vr": "jest",
+    "cypress:open": "TZ=America/New_York cypress open"
   },
   "peerDependencies": {
     "react": "^16.13.1",
